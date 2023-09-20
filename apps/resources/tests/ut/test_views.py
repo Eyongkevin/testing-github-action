@@ -112,7 +112,7 @@ class TestResourcesView(TestCase):  # Test<view-name>View
         #   )
         #   test_user.save()
 
-        login = self.client.login(username="kenz", password="test@2023password")
+        self.client.login(username="kenz", password="test@2023password")
         response = self.client.get(
             reverse("resources:resource-detail", kwargs={"id": self.resource.id}),
             HTTP_USER_AGENT="Mozilla/5.0",
