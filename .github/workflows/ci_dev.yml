@@ -18,14 +18,15 @@ jobs:
   # is going to execute so that we can run some checks and tests
   build: # Job ID
 
+    # We can test our project on other operating systems
     runs-on: ubuntu-latest
     env:
-      DB_USER: postgres
-      DB_PWD: postgres
-      DB_NAME: resourceshare
-      DB_HOST: localhost
-      DB_PORT: 5432
-      SECRET_KEY: django-insecure-5fyJF16SHIub_Q_3UInrLYb8aH_8_6A_caIXA0u7r1oiwiHgXF7BmpoQOsNQLz3UIpc
+      DB_USER: ${{secrets.DB_USER}}
+      DB_PWD: ${{secrets.DB_PWD}}
+      DB_NAME: ${{secrets.DB_NAME}}
+      DB_HOST: ${{variables.DB_HOST}}
+      DB_PORT: ${{variables.DB_PORT}}
+      SECRET_KEY: ${{secrets.SECRET_KEY}}
     services:
       postgres_main:
         image: postgres:15
