@@ -112,7 +112,7 @@ LOGGING = {
         "file": {
             "level": "INFO",  # log level INFO and higher
             "class": "logging.FileHandler",
-            "filename": "logs/req_res_log.txt",
+            "filename": str(BASE_DIR / "logs" / "req_res_log.txt"),
             "formatter": "verbose",
         },
     },
