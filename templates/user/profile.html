@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+<!-- in case you are using static -->
+{% load static %}
+<!-- override title -->
+{% block title %}{{ block.super }} - Profile{% endblock title %}
+<!-- override main content -->
+{% block content %}
+<h1 class="head">Welcome to {{ request.user.username }}</h1>
+
+<div class="viewed-resources">
+  <h3>Viewed Resources</h3>
+
+  {% for resource_id, resource_title in request.session.viewed_resources %}
+  <a href={% url 'resources:resource-detail' id=resource_id %}>{{resource_title}}</a>
+  <br />
+
+   {% empty %}
+      <p>No recently viewed resources</p>
+  
+  {% endfor %}
+</div>
+{% endblock content %}

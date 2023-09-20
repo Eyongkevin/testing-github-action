@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<!-- in case you are using static -->
+{% load static %}
+<!-- override title -->
+{% block title %}{{ block.super }} - Home{% endblock title %}
+<!-- override main content -->
+{% block content %}
+<h1 class="head">Welcome to ResourceShare</h1>
+
+<p>{{res_cnt}} resources and counting!</p>
+
+<h2>All Users</h2>
+<p>{{user_cnt}} Users and counting!</p>
+<h2>All Categories</h2>
+<ol>
+  {% for cat_cnt in cnt_per_cat %}
+  <li>{{cat_cnt.cat_id__cat}}: {{cat_cnt.cnt}}</li>
+  {% endfor %}
+</ol>
+{% endblock content %}

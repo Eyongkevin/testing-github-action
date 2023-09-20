@@ -1,0 +1,13 @@
+{% load custom_filter %}
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>{{res.title}}</h1>
+    <p><b>User</b>: {{res.user_id.username.capitalize}}</p>
+    <p><b>Link</b>: {{res.link}}</p>
+    <p><b>Description</b>: {{res.description}}</p>
+    <p><b>Category</b>: {{res.cat_id.cat}}</p>
+    <p><b>Tags</b>: {{res.get_all_tags|dash_separator}}</p>
+    <p><b>Tags</b>: {{res.get_all_tags|separator:" "}}</p>
+  </body>
+</html>
