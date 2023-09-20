@@ -117,4 +117,4 @@ class TestResourcesView(TestCase):  # Test<view-name>View
             reverse("resources:resource-detail", kwargs={"id": self.resource.id}),
             HTTP_USER_AGENT="Mozilla/5.0",
         )
-        self.assertEqual(response.status_code, 300)
+        self.assertEqual(response.status_code, 200)
